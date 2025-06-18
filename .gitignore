@@ -21,3 +21,25 @@ MemoryCaptures/
 .DS_Store
 Thumbs.db
 
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+MemoryCaptures/
+.vs/
+*.csproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.DS_Store
+
+

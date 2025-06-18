@@ -4,39 +4,49 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
 
- 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-
+        // Singleton para que sea accesible desde cualquier script
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Opcional si usás varias escenas
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
         CloseGame();
         RebootGame();
-
     }
 
-    // CERRAR EL JUEGO
-    public void CloseGame() {
+    // Cerrar el juego con Escape
+    public void CloseGame()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
     }
 
-
-    // REINICIAR EL JUEGO (ESCENA)
+    // Reiniciar el juego manualmente con R
     public void RebootGame()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("Nivel1");
-
         }
+    }
+
+    // Reinicio llamado externamente (desde PlayerHealth)
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Nivel1");
     }
 }
