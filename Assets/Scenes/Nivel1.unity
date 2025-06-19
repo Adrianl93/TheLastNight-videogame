@@ -2321,7 +2321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &338851079
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2487,6 +2487,7 @@ MonoBehaviour:
   isGrounded: 0
   groundCheckPosition: {fileID: 605262458}
   groundCheckRadius: 5
+  animator: {fileID: 0}
 --- !u!114 &338851084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6020,7 +6021,8 @@ MonoBehaviour:
     m_Bits: 64
   isGrounded: 0
   groundCheckPosition: {fileID: 1430141288}
-  groundCheckRadius: 5
+  groundCheckRadius: 0.25
+  animator: {fileID: 782003871}
 --- !u!61 &782003875
 BoxCollider2D:
   m_ObjectHideFlags: 0
