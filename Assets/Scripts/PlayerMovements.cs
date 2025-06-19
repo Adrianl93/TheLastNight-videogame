@@ -14,7 +14,10 @@ public class PlayerMovements : MonoBehaviour
     public Animator animator;
 
     private Collider2D _collider;
-   
+
+
+    [SerializeField] private AudioClip jumpSound;
+    private AudioSource _audioSource;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,6 +26,7 @@ public class PlayerMovements : MonoBehaviour
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
+        _audioSource = GetComponent<AudioSource>();
 
 
     }
@@ -79,7 +83,11 @@ public class PlayerMovements : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && _isGrounded)
         {
             _rigidBody2D.AddForceY(jumpForce, ForceMode2D.Impulse);
+            if (jumpSound != null)
+                _audioSource.PlayOneShot(jumpSound);
+
         }
+
 
         animator.SetBool("IsJumping", !_isGrounded);
     }
